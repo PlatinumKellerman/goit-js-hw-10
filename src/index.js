@@ -12,7 +12,19 @@ inputEl.addEventListener('input', onInput)
 
 function onInput() {
     const name = inputEl.value;
-    fetchCountries(name)
+    fetchCountries(name).then(country => createMarkup(country))
 }
 
 
+
+//need make markup
+function createMarkup(countries) {
+    countries.map(country => {
+        console.log(country);
+        console.log(Object.values(country.flags)[1]);           //flag link
+        console.log(country.name.official);                    //повна назва країни
+        console.log(country.capital[0]);                       //столиця
+        console.log(country.population);                      //населення
+        console.log(Object.values(country.languages));        //масив мов
+    })
+}   
