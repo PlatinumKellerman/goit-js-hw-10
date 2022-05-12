@@ -26,6 +26,7 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "notiflix": "^3.2.5"
   }
 }
