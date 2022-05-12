@@ -5,7 +5,6 @@ import { fetchCountries } from '../src/fetchCountries.js'
 
 const DEBOUNCE_DELAY = 300;
 
-
 const inputEl = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countyInfoThumb = document.querySelector('.country-info');
@@ -16,7 +15,6 @@ function onInput() {
     const name = inputEl.value;
     fetchCountries(name).then((country) => {
         if (country.length <= 10 & country.length > 1) {
-
         createCountryListMarkup(country)
         const newCountryListMarkup = createCountryListMarkup(country);
             countryList.innerHTML = newCountryListMarkup;
@@ -37,7 +35,6 @@ function onInput() {
             const countryInfoMarkup = createCountryInfoMarkup(country);
             countyInfoThumb.innerHTML = countryInfoMarkup;
         }
-        
     })
         .catch(() => {
         Notify.failure("Oops, there is no country with that name", {
@@ -49,14 +46,12 @@ function onInput() {
                 cssAnimationStyle: 'zoom',
             })
         }).finally(e => {
-            if (name === "") {
+            if (name.length === "") {
                 countryList.innerHTML = "";
                 countyInfoThumb.innerHTML = "";
             }
     })
-    
 }
-
 
 function createCountryInfoMarkup(countries) {
     return countries.map(country => {
@@ -93,11 +88,3 @@ function createCountryListMarkup(countries) {
     </li>`
     }).join('');
     }
-
-        // console.log(country);
-        // Object.values(country.flags)[1]       flag link
-        // country.name                          повна назва країни
-        // country.capital[0]                    столиця
-        // country.population       населення
-        // country.languages        масив мов
-    
