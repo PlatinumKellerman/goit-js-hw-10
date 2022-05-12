@@ -36,7 +36,6 @@ function onInput() {
             createCountryInfoMarkup(country);
             const countryInfoMarkup = createCountryInfoMarkup(country);
             countyInfoThumb.innerHTML = countryInfoMarkup;
-            console.log(country);
         }
         
     })
@@ -58,10 +57,13 @@ function onInput() {
     
 }
 
+
 function createCountryInfoMarkup(countries) {
     return countries.map(country => {
-        
-        return `
+        const language = Object.values(country.languages).map(lang => {
+            return lang.name;
+        }).join(', ');
+        return`
             <div class="info-wrapper">
             <img 
             class="flag__image"
@@ -74,7 +76,8 @@ function createCountryInfoMarkup(countries) {
             </div>
         <p class="country-info">Capital: <span class="country-info__value__special">${country.capital}</span></p>
         <p class="country-info">Population: <span class="country-info__value">${country.population}</span></p>
-        <p class="country-info">Languages: <span class="country-info__value">${Object.values(country.languages[0])[2]}</span></p>`
+        <p class="country-info">Languages: <span class="country-info__value">${language}</span></p>`
+
     }).join('');
 }
 
