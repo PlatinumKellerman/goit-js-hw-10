@@ -9,7 +9,6 @@ const countryList = document.querySelector('.country-list');
 const countyInfoThumb = document.querySelector('.country-info');
 
 inputEl.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY))
-
 function onInput() {
     const name = inputEl.value;
     if (name) {
@@ -34,8 +33,7 @@ function onInput() {
                     const countryInfoMarkup = createCountryInfoMarkup(country);
                     countyInfoThumb.innerHTML = countryInfoMarkup;
                 }
-        }
-        ).catch(() => {
+        }).catch(() => {
                 Notify.failure("Oops, there is no country with that name", {
                     width: '400px',
                     position: 'center-top',
@@ -50,7 +48,6 @@ function onInput() {
             countryList.innerHTML = "";
     }
 }
-
 
 function createCountryInfoMarkup(countries) {
     return countries.map(country => {
