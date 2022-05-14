@@ -42,12 +42,13 @@ body {
 .flag__image {
   width: 5%;
   height: auto;
-  padding-right: 10px;
+  border: 1px solid #111111;
 }
 
 .country-list__name {
   font-size: 14px;
   font-weight: bold;
+  padding-left: 10px;
 }
 
 .info-wrapper {
@@ -57,6 +58,7 @@ body {
 
 .country-info__name {
   font-size: 30px;
+  padding-left: 10px;
   font-weight: bold;
 }
 
